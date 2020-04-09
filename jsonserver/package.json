@@ -1,0 +1,20 @@
+{
+  "name": "jsonserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db": "json-server -w db.json",
+    "tunnel": "ngrok http 3000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "formik": "^2.1.4",
+    "json-server": "^0.16.1",
+    "ngrok": "^3.2.7",
+    "yup": "^0.28.3"
+  }
+}
