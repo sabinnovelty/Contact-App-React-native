@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   StyleSheet,
   View,
@@ -9,13 +9,16 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 import { createDrawerNavigator } from 'react-navigation-drawer';
-import { Login, Register, ContactList, Header, EditContact, ContactCreate, LocateMap } from './src/app/screens'
+import { Login, Register, ContactList, Header, EditContact, ContactCreate, LocateMap, ResolveAuthScreen, SignOut } from './src/app/screens'
 import Ionicons from 'react-native-vector-icons/FontAwesome'
 import { Provider } from './src/app/context/ContactContext';
-
-
+import { getCurrentUser } from './src/app/firebase/firebase.utils';
+import { Provider as AuthProvider } from './src/app/context/AuthContext';
+import { setNavigator } from './src/app/navigationRef';
+import messaging from '@react-native-firebase/messaging';
 const Auth = createSwitchNavigator(
   {
+    ResolveAuth: ResolveAuthScreen,
     Login: { screen: Login },
     Register: { screen: Register }
   }, {
@@ -47,7 +50,9 @@ const ContactStack = createStackNavigator({
 
 
 const App = createDrawerNavigator({
-  Contact: ContactStack
+  Contact: ContactStack,
+  SignOut: SignOut
+
 }, {
   navigationOptions: {
     header: null
@@ -74,21 +79,37 @@ const AppRoute = createStackNavigator({
   }
 })
 
-const styles = StyleSheet.create({
-
-});
-
-
-
-
 
 const MainApp = createAppContainer(AppRoute);
 
 
+async function registerAppWithFCM() {
+  let register_device = await messaging().registerDeviceForRemoteMessages();
+  console.log('Device registered in FCM', register_device)
+}
+
 export default () => {
+  // getCurrentUser();
+  useEffect(() => {
+    registerAppWithFCM();
+    return () => {
+
+    }
+  }, [])
   return (
+
     <Provider>
-      <MainApp />
+      <AuthProvider>
+        <MainApp
+          ref={
+            navigator => {
+              setNavigator(navigator)
+            }
+          }
+        />
+      </AuthProvider>
+
     </Provider>
+
   )
 }

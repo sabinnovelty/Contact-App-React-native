@@ -1,0 +1,69 @@
+{
+    "project_info": {
+        "project_number": "924183654033",
+        "firebase_url": "https://fitness-app-51497.firebaseio.com",
+        "project_id": "fitness-app-51497",
+        "storage_bucket": "fitness-app-51497.appspot.com"
+    },
+    "client": [
+        {
+            "client_info": {
+                "mobilesdk_app_id": "1:924183654033:android:9316e78a04c13c009c9930",
+                "android_client_info": {
+                    "package_name": "com.contactapphook"
+                }
+            },
+            "oauth_client": [
+                {
+                    "client_id": "924183654033-9c68ajegk541rdn6ap0gv6cgsvpm1b7a.apps.googleusercontent.com",
+                    "client_type": 3
+                }
+            ],
+            "api_key": [
+                {
+                    "current_key": "AIzaSyBCHy4HZpd1pwJclFd6sbMBIpgkpCv8BIw"
+                }
+            ],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": [
+                        {
+                            "client_id": "924183654033-9c68ajegk541rdn6ap0gv6cgsvpm1b7a.apps.googleusercontent.com",
+                            "client_type": 3
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "client_info": {
+                "mobilesdk_app_id": "1:924183654033:android:0d3f2319ea808a199c9930",
+                "android_client_info": {
+                    "package_name": "com.fitness_app"
+                }
+            },
+            "oauth_client": [
+                {
+                    "client_id": "924183654033-9c68ajegk541rdn6ap0gv6cgsvpm1b7a.apps.googleusercontent.com",
+                    "client_type": 3
+                }
+            ],
+            "api_key": [
+                {
+                    "current_key": "AIzaSyBCHy4HZpd1pwJclFd6sbMBIpgkpCv8BIw"
+                }
+            ],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": [
+                        {
+                            "client_id": "924183654033-9c68ajegk541rdn6ap0gv6cgsvpm1b7a.apps.googleusercontent.com",
+                            "client_type": 3
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "configuration_version": "1"
+}
