@@ -16,6 +16,9 @@ import { getCurrentUser } from './src/app/firebase/firebase.utils';
 import { Provider as AuthProvider } from './src/app/context/AuthContext';
 import { setNavigator } from './src/app/navigationRef';
 import messaging from '@react-native-firebase/messaging';
+import NotificationTest from './src/app/screens/NotificationTestScreen';
+
+
 const Auth = createSwitchNavigator(
   {
     ResolveAuth: ResolveAuthScreen,
@@ -82,34 +85,30 @@ const AppRoute = createStackNavigator({
 
 const MainApp = createAppContainer(AppRoute);
 
+export default NotificationTest
 
-async function registerAppWithFCM() {
-  let register_device = await messaging().registerDeviceForRemoteMessages();
-  console.log('Device registered in FCM', register_device)
-}
+// export default () => {
+//   // getCurrentUser();
+//   useEffect(() => {
+//     registerAppWithFCM();
+//     return () => {
 
-export default () => {
-  // getCurrentUser();
-  useEffect(() => {
-    registerAppWithFCM();
-    return () => {
+//     }
+//   }, [])
+//   return (
 
-    }
-  }, [])
-  return (
+//     <Provider>
+//       <AuthProvider>
+//         <MainApp
+//           ref={
+//             navigator => {
+//               setNavigator(navigator)
+//             }
+//           }
+//         />
+//       </AuthProvider>
 
-    <Provider>
-      <AuthProvider>
-        <MainApp
-          ref={
-            navigator => {
-              setNavigator(navigator)
-            }
-          }
-        />
-      </AuthProvider>
+//     </Provider>
 
-    </Provider>
-
-  )
-}
+//   )
+// }
